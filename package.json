@@ -1,0 +1,64 @@
+{
+    "name": "covid-checkin-app",
+    "version": "0.0.1",
+    "author": "Sreshta Gollapally",
+    "bugs": "https://github.com/Sreshta Gollapally/covid-checkin-app/issues",
+    "dependencies": {
+        "@lwc/synthetic-shadow": "^8.12.4",
+        "@salesforce-ux/design-system": "^2.25.6",
+        "compression": "^1.7.5",
+        "express": "^4.21.2",
+        "helmet": "^8.0.0",
+        "nvm": "^0.0.4",
+        "querystring-es3": "^0.2.1"
+    },
+    "engines": {
+        "node": ">=10.13.0",
+        "npm": ">=6.4.1",
+        "yarn": ">=1.9.4"
+    },
+    "homepage": "https://github.com/Sreshta Gollapally/covid-checkin-app",
+    "keywords": [
+        "lwc"
+    ],
+    "license": "MIT",
+    "nodemonConfig": {
+        "watch": [
+            "src/server/**/*.js"
+        ],
+        "ext": "js",
+        "ignore": [
+            "src/**/*.spec.js",
+            "src/**/*.test.js"
+        ],
+        "exec": "node ./src/server/api.js"
+    },
+    "repository": "Sreshta Gollapally/covid-checkin-app",
+    "scripts": {
+        "build": "set NODE_OPTIONS=--openssl-legacy-provider && lwc-services build -m production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "postinstall": "husky install",
+        "precommit": "npm run prettier:verify && [ $? -eq 0 ] && npm run lint",
+        "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "start": "run-p start:client start:api",
+        "start:api": "node src/server/api.js",
+        "start:client": "node scripts/server.js",
+        "test:unit": "lwc-services test:unit",
+        "test:unit:coverage": "lwc-services test:unit --coverage",
+        "test:unit:debug": "lwc-services test:unit --debug",
+        "test:unit:watch": "lwc-services test:unit --watch",
+        "watch": "run-p watch:client watch:server",
+        "watch:client": "set NODE_OPTIONS=--openssl-legacy-provider && lwc-services watch",
+        "watch:server": "nodemon"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-plugin-inclusive-language": "^2.2.1",
+        "husky": "^9.1.7",
+        "lwc-services": "^3.2.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^3.4.2"
+    }
+}
