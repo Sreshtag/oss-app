@@ -15,16 +15,31 @@
                     </header>
                 </div>
                 <div class="slds-card__body slds-card__body_inner description">
-                    <p>Commetns on form</p>
+                    <p>Please submit all the acutomation ideas that you have and are keen on implementing to make 
+                        our company's operation even more easier.</p>
                 </div>
                 <div
                     class="slds-grid slds-grid_align-spread slds-p-around_large"
                 >
-                    <img src="/resources/code1.jpeg" alt="coder" />
-                    <img src="/resources/code3.jpg" alt="coder" />
-                    <img src="/resources/code2.jpeg" alt="coder" />
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <span
+                                ><img src="/resources/code1.jpeg" alt="coder"
+                            /></span>
+                        </div>
+                        <div class="slds-col">
+                            <span
+                                ><img src="/resources/code3.jpg" alt="coder"
+                            /></span>
+                        </div>
+                        <div class="slds-col">
+                            <span
+                                ><img src="/resources/code2.jpeg" alt="coder"
+                            /></span>
+                        </div>
+                    </div>
                 </div>
-                <form>
+                <form onsubmit={checkinHandler}>
                     <div class="slds-form-element slds-p-around_small">
                         <label
                             class="slds-form-element__label"
@@ -41,6 +56,8 @@
                                 placeholder="Please enter your Name"
                                 required=""
                                 class="slds-input"
+                                onkeyup={formChange}
+                                name="Name"
                             />
                         </div>
                     </div>
@@ -60,6 +77,8 @@
                                 placeholder="Please enter your Email"
                                 required=""
                                 class="slds-input"
+                                onkeyup={formChange}
+                                name="Email"
                             />
                         </div>
                     </div>
@@ -79,12 +98,22 @@
                                 placeholder="Please enter your EmployeeId"
                                 required=""
                                 class="slds-input"
+                                onkeyup={formChange}
+                                name="EmployeeId"
                             />
                         </div>
                     </div>
+                    <div class="slds-m-around_medium">
+                        <button
+                            type="submit"
+                            class="slds-button slds-card__footer-action slds-button_brand margin-auto"
+                        >
+                            Submit form
+                        </button>
+                    </div>
                 </form>
-                <footer class="slds-card__footer"><button class="slds-button slds-button_brand">Submit form</button></footer>
             </article>
         </div>
     </div>
+    <my-custom-input></my-custom-input>
 </template>
