@@ -7,7 +7,10 @@
         "@lwc/synthetic-shadow": "^8.12.4",
         "@salesforce-ux/design-system": "^2.25.6",
         "compression": "^1.7.5",
+        "dotenv": "^16.4.7",
         "express": "^4.21.2",
+        "google-auth-library": "^9.15.0",
+        "google-spreadsheet": "^4.1.4",
         "helmet": "^8.0.0",
         "nvm": "^0.0.4",
         "querystring-es3": "^0.2.1"
@@ -51,7 +54,7 @@
         "test:unit:watch": "lwc-services test:unit --watch",
         "watch": "run-p watch:client watch:server",
         "watch:client": "set NODE_OPTIONS=--openssl-legacy-provider && lwc-services watch",
-        "watch:server": "nodemon"
+        "watch:server": "set NODE_OPTIONS=--openssl-legacy-provider && nodemon"
     },
     "devDependencies": {
         "eslint": "^7.32.0",

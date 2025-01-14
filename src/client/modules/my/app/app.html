@@ -1,4 +1,8 @@
 <template>
+    <template if:true={loader}>
+        <my-spinner></my-spinner>
+    </template>
+
     <div
         class="slds-grid slds-grid_align-center slds-gutters slds-p-around_x-large"
     >
@@ -10,13 +14,16 @@
                 <div class="slds-card__header slds-grid">
                     <header
                         class="slds-media slds-media_center slds-has-flexi-truncate slds-grid_align-center slds-text-heading_large"
-                    >
-                        <div>Bring on your automation ideas</div>
+                    ><template if:false={isSubmitted}><div>Bring on your automation ideas</div></template>
+                    <template if:true={isSubmitted}><div>Great!! We will review your idea {checkinmsg}</div></template>
                     </header>
                 </div>
                 <div class="slds-card__body slds-card__body_inner description">
-                    <p>Please submit all the acutomation ideas that you have and are keen on implementing to make 
-                        our company's operation even more easier.</p>
+                    <p>
+                        Please submit all the automation ideas that you have
+                        and are keen on implementing to make our company's
+                        operation even more easier.
+                    </p>
                 </div>
                 <div
                     class="slds-grid slds-grid_align-spread slds-p-around_large"
@@ -39,81 +46,48 @@
                         </div>
                     </div>
                 </div>
-                <form onsubmit={checkinHandler}>
-                    <div class="slds-form-element slds-p-around_small">
-                        <label
-                            class="slds-form-element__label"
-                            for="text-input-id-46"
-                        >
-                            <abbr class="slds-required" title="required"
-                                >* </abbr
-                            >Name</label
-                        >
-                        <div class="slds-form-element__control">
-                            <input
-                                type="text"
-                                id="text-input-id-46"
-                                placeholder="Please enter your Name"
-                                required=""
-                                class="slds-input"
-                                onkeyup={formChange}
-                                name="Name"
-                            />
+                <template if:false={isSubmitted}>
+                    <form onsubmit={checkinHandler}>
+                        <my-custom-input
+                            name="Name"
+                            type="text"
+                            required
+                            label="Name"
+                            onformchange={formChange}
+                        ></my-custom-input>
+                        <my-custom-input
+                            name="Email"
+                            type="text"
+                            required
+                            label="Email"
+                            onformchange={formChange}
+                        ></my-custom-input>
+                        <my-custom-input
+                            name="EmployeeId"
+                            type="Number"
+                            required
+                            label="EmployeeId"
+                            onformchange={formChange}
+                        ></my-custom-input>
+                        <my-custom-input
+                            name="Idea"
+                            type="text"
+                            required
+                            label="Idea"
+                            onformchange={formChange}
+                        ></my-custom-input>
+
+                        <div class="slds-m-around_medium">
+                            <button
+                                type="submit"
+                                class="slds-button slds-card__footer-action slds-button_brand margin-auto"
+                            >
+                                Submit form
+                            </button>
                         </div>
-                    </div>
-                    <div class="slds-form-element slds-p-around_small">
-                        <label
-                            class="slds-form-element__label"
-                            for="text-input-id-47"
-                        >
-                            <abbr class="slds-required" title="required"
-                                >* </abbr
-                            >Email</label
-                        >
-                        <div class="slds-form-element__control">
-                            <input
-                                type="email"
-                                id="text-input-id-47"
-                                placeholder="Please enter your Email"
-                                required=""
-                                class="slds-input"
-                                onkeyup={formChange}
-                                name="Email"
-                            />
-                        </div>
-                    </div>
-                    <div class="slds-form-element slds-p-around_small">
-                        <label
-                            class="slds-form-element__label"
-                            for="text-input-id-48"
-                        >
-                            <abbr class="slds-required" title="required"
-                                >* </abbr
-                            >Employee Id</label
-                        >
-                        <div class="slds-form-element__control">
-                            <input
-                                type="number"
-                                id="text-input-id-48"
-                                placeholder="Please enter your EmployeeId"
-                                required=""
-                                class="slds-input"
-                                onkeyup={formChange}
-                                name="EmployeeId"
-                            />
-                        </div>
-                    </div>
-                    <div class="slds-m-around_medium">
-                        <button
-                            type="submit"
-                            class="slds-button slds-card__footer-action slds-button_brand margin-auto"
-                        >
-                            Submit form
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </template>
             </article>
         </div>
     </div>
-    <my-custom-input></my-custom-input>
 </template>

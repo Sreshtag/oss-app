@@ -1,21 +1,19 @@
 <template>
     <div class="slds-form-element slds-p-around_small">
-        <label
-            class="slds-form-element__label"
-            for="text-input-id-46"
-        >
-            <abbr class="slds-required" title="required"
-                >* </abbr
-            >Name</label
+        <label class="slds-form-element__label" for={uniqueId}
+            ><template if:true={Required}>
+                <abbr class="slds-required" title="required">* </abbr></template
+            >
+            {label}</label
         >
         <div class="slds-form-element__control">
             <input
-                type="text"
-                id="text-input-id-46"
-                placeholder="Please enter your Name"
+                type={type}
+                id={uniqueId}
+                placeholder="Please enter"
                 required=""
                 class="slds-input"
-                onkeyup={formChange}
+                onkeyup={InputHandler}
                 name={name}
             />
         </div>
