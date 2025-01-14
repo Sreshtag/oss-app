@@ -7,17 +7,16 @@ export default class App extends LightningElement {
     formData=defaultData
     isSubmitted = false
     get checkinmsg(){
-        return `${this,this.formData.Name}`
+        return `${this.formData.Name}`
     }
     formChange(event){
         const{name,value} =event.detail;
         this.formData = {...this.formData,[name]:value}
     }
     checkinHandler(event){
-        event.preventDefault()
+        event.preventDefault();
         this.loader = true
         this.formData = {...this.formData , "Date": new Date().toLocaleDateString() , "Time" : new Date().toLocaleTimeString()}
-        JSON.stringify(this.formData)
         fetch(`${BASE_URL}/api/v1/submit`,{
             method:'POST',
             headers:{
