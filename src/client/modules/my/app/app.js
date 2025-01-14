@@ -17,6 +17,7 @@ export default class App extends LightningElement {
         event.preventDefault();
         this.loader = true
         this.formData = {...this.formData , "Date": new Date().toLocaleDateString() , "Time" : new Date().toLocaleTimeString()}
+        console.log(this.formData)
         fetch(`${BASE_URL}/api/v1/submit`,{
             method:'POST',
             headers:{
