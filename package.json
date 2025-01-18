@@ -34,7 +34,7 @@
             "src/**/*.spec.js",
             "src/**/*.test.js"
         ],
-        "exec": "node ./src/server/api.js"
+        "exec": "node ./src/server/index.js"
     },
     "repository": "Sreshta Gollapally/covid-checkin-app",
     "scripts": {
@@ -45,8 +45,8 @@
         "precommit": "npm run prettier:verify && [ $? -eq 0 ] && npm run lint",
         "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
-        "start": "run-p start:client start:api",
-        "start:api": "node src/server/api.js",
+        "start": "run-p start:client start:index",
+        "start:api": "node src/server/index.js",
         "start:client": "node scripts/server.js",
         "test:unit": "lwc-services test:unit",
         "test:unit:coverage": "lwc-services test:unit --coverage",
