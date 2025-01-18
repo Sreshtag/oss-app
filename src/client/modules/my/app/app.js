@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 const defaultData={Name:'',Email:'',EmployeeId:'',Idea:''}
 
-const BASE_URL = 'http://localhost:3002'
+const BASE_URL = 'https://oss-app-server.vercel.app'
 export default class App extends LightningElement {
     loader=false
     formData=defaultData
